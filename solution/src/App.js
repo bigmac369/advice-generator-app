@@ -5,29 +5,23 @@ import smallPic from "./images/pattern-divider-mobile.svg";
 
 export default function App() {
   const [myData, setMyData] = React.useState("");
+  const [number, setNumber] = React.useState("");
 
-  async function getAdvice() {
+  const fetchAdvice = async () => {
     const res = await fetch("https://api.adviceslip.com/advice");
     const data = await res.json();
+
     setMyData(data.slip.advice);
-  }
+    setNumber(data.slip.id);
+  };
 
   React.useEffect(() => {
-    getAdvice();
+    fetchAdvice();
   }, []);
-
-  // React.useEffect(() => {
-  //   console.log("effect ran");
-  //   fetch("https://api.adviceslip.com/advice")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setData(data.slip.advice);
-  //     });
-  // }, [data]);
 
   return (
     <div className="wrapper">
-      <p className="advice-number text-center">ADVICE #117</p>
+      <p className="advice-number text-center">ADVICE #{number}</p>
       <h1 className="advice py-5 text-center">{myData}</h1>
 
       <picture>
@@ -35,7 +29,10 @@ export default function App() {
         <img src={smallPic} alt="" />
       </picture>
 
-      <button onClick={getAdvice} className="btn inline-block p-5 rounded-full">
+      <button
+        onClick={fetchAdvice}
+        className="btn inline-block p-5 rounded-full"
+      >
         <img src={buttonIcon} alt="" />
       </button>
     </div>
