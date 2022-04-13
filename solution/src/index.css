@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap");
+
+:root {
+  --light-cyan: hsl(193, 38%, 86%);
+  --neon-green: hsl(150, 100%, 66%);
+  --grayish-blue: hsl(217, 19%, 38%);
+  --dark-grayish-blue: hsl(217, 19%, 24%);
+  --dark-blue: hsl(218, 23%, 16%);
+}
+
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  box-sizing: inherit;
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--dark-blue);
+  font-size: 1.75rem;
+  margin: 0 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 0.1px);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.wrapper {
+  background-color: var(--dark-grayish-blue);
+  padding: 3rem;
+  border-radius: 0.625rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.advice {
+  color: var(--light-cyan);
+  font-size: 1.75rem;
+}
+
+.advice-number {
+  color: var(--neon-green);
+  font-size: 0.8125rem;
+  letter-spacing: 4px;
+}
+
+.btn {
+  background-color: var(--neon-green);
+  position: absolute;
+  bottom: 0;
+  transform: translate(192px, 24px);
+}
+
+.btn:hover {
+  background-color: var(--neon-green);
+  box-shadow: 0 0 3rem hsla(150, 100%, 66%, 0.75);
+}
+
+@media only screen and (min-width: 768px) {
+  .wrapper {
+    width: 540px;
+    height: 364px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  html {
+    font-size: 80%;
+  }
+
+  .wrapper {
+    width: 350px;
+    height: 350px;
+  }
+
+  .btn {
+    transform: translate(110px, 24px);
+  }
+}
